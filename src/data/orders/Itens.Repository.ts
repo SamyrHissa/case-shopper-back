@@ -5,5 +5,5 @@ export default interface ItensOrderRepository {
     getItemById(itemId: string): Promise<ItensOrderModel | undefined>
     alter(itemId: string, qty_alter: number): Promise<boolean>
     delete(itemId: string): Promise<boolean>
-    getItensByOrderId(order_id: string): Promise<ItensOrderModel[]>
+    getItensByOrderId(order_id: string): Promise<ItensOrderModel[] | undefined>
 }

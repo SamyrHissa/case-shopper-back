@@ -18,7 +18,7 @@ export class OrdersController {
             res.status(201).send(result)
         } catch (error: any) {
             console.log(error);
-            res.status(error.Code).send({ message: error.message })
+            res.status(error.code).send({ message: error.message })
         }
     }
     getOrders = async (req: Request, res: Response) => {
@@ -27,7 +27,7 @@ export class OrdersController {
             res.status(200).send(result)
         } catch (error: any) {
             console.log(error);
-            res.status(error.Code).send({ message: error.message })
+            res.status(error.code).send({ message: error.message })
         }
     }
     getOrderById = async (req: Request, res: Response) => {

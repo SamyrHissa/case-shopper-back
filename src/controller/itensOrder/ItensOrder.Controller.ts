@@ -26,7 +26,7 @@ export class ItensOrderController{
             res.status(201).send(result)
         } catch (error: any) {
             console.log(error);
-            res.status(error.Code).send({ message: error.message })
+            res.status(error.code).send({ message: error.message })
         }
         
 
@@ -39,7 +39,7 @@ export class ItensOrderController{
             res.status(201).send(result)
         } catch (error: any) {
             console.log(error);
-            res.status(error.Code).send({ message: error.message })
+            res.status(error.code).send({ message: error.message })
         }
     }
 
@@ -50,7 +50,7 @@ export class ItensOrderController{
             res.status(201).send(result)
         } catch (error: any) {
             console.log(error);
-            res.status(error.Code).send({ message: error.message })
+            res.status(error.code).send({ message: error.message })
         }
     }
     getItensByOrderId = async (req:Request, res: Response) => {
@@ -60,7 +60,7 @@ export class ItensOrderController{
             res.status(201).send(result)
         } catch (error: any) {
             console.log(error);
-            res.status(error.Code).send({ message: error.message })
+            res.status(error.code).send({ message: error.message })
         }
         
 

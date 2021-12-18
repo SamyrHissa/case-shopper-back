@@ -19,12 +19,12 @@ content-type: application/json
 
 ###
 
-GET http://localhost:3003/orders/b3b4a44b-e34c-41fc-a99a-4a7d977b99d
+GET http://localhost:3003/orders/f13d62ef-240d-48 00-a595-89583502d498
 content-type: application/json
 
 
 ###
-GET http://localhost:3003/orders/itens/b3b4a44b-e34c-41fc-a99a-4a7d977b99d3
+GET http://localhost:3003/orders/itens/b3b4a44b-e34c-41fc-a99a-4a7d977b 99d3
 content-type: application/json
 
 
@@ -34,7 +34,7 @@ POST http://localhost:3003/orders/itens
 content-type: application/json
 
 {
-    "order_id": "b3b4a44b-e34c-41fc-a99a-4a7d977b99d3",
+    "order_id": "f13d62ef-240d-4800-a595-895835 02d498",
     "product_id": "23",
     "qty_requested": 25
 }
@@ -44,7 +44,7 @@ PUT http://localhost:3003/orders/itens
 content-type: application/json
 
 {
-    "item_id": "694a6370-3b5b-4c96-a7a3-5fa83f3d8668",
+    "item_id": "f13d62ef-240d-4800-a595-895502d498",
     "qty_alter": 5
 }
 
