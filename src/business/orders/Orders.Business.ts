@@ -22,7 +22,6 @@ export class OrdersBusiness {
         
         
         const result = await this.data.create(newOrder)
-        console.log(result);
         if(result){
             return {
                 message: 'Pedido criado com sucesso!',
@@ -33,7 +32,12 @@ export class OrdersBusiness {
         }
     }
     getOrders = async () => {
-        return await this.data.getOrders()
+        const result = await this.data.getOrders()
+        if(result){
+            return result
+         } else {
+             throw new BaseError("Sem pedidos cadastrados!", 404)
+         }
     }
     getOrderById = async (order_id: string) => {
         if(!order_id){

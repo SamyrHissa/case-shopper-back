@@ -44,6 +44,10 @@ export class ItensOrderBusiness {
         if(!itemId || !(qtyAlter > 0)){
             throw new BaseError ("O 'item_id' é obrigatório e quantidade tem que ser maior que 0!", 422);
         }
+        const itemIdExiste = await this.data.getItemById(itemId);
+        if(!itemIdExiste){
+            throw new BaseError ("'itemId' não encontrado!", 404)
+        }
         const result = await this.data.alter(itemId, qtyAlter);
         if(result){
             return {

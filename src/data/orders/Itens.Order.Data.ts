@@ -125,7 +125,7 @@ export class ItensOrderData extends BaseDatabase implements ItensOrderRepository
             return false
         }
     }
-    async getItensByOrderId(order_id: string): Promise<ItensOrderModel[]>{
+    async getItensByOrderId(order_id: string): Promise<ItensOrderModel[] | undefined>{
         try {
             const result = await this.getConnection()
                     .select("*")
@@ -135,7 +135,7 @@ export class ItensOrderData extends BaseDatabase implements ItensOrderRepository
             return result
         } catch (error) {
             console.log(error)
-            return []
+            return undefined
         }
     }
 }

@@ -1,4 +1,5 @@
 import { ProductsData } from "../../data/products/Products.Data";
+import BaseError from "../../error/BaseError";
 import { ProductsModel } from "../../model/products/Products.Model";
 
 export class ProductsBusiness {
@@ -7,6 +8,12 @@ export class ProductsBusiness {
         private data: ProductsData
     ){}
    getProducts = async (): Promise<ProductsModel[]> => {
-       return await this.data.getProducts()
+       const result = await this.data.getProducts();
+       if(result){
+           return result
+        } else {
+            throw new BaseError("Produto não encontrado!", 404)
+        }
+       
    }
 }
