@@ -53,10 +53,8 @@ const createTables = async (): Promise<boolean> => {
 
 
 const insertProducts = async (): Promise<boolean> => {
-    let produtos: any[] = [];
-    const results: any[] = [];
     try {
-        const products = ReadCsvFileToArray('./src/data/products_ascii.csv');
+        const products = ReadCsvFileToArray('./src/data/migrations/products_ascii.csv');
         await connection('shopper_Products').insert(products)
         return true
     } catch (error) {
