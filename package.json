@@ -24,7 +24,7 @@
   "scripts": {
     "dev": "cls && ts-node-dev ./src/index.ts",
     "start": "tsc && node ./build/index.js",
-    "migrations": "ts-node ./src/data/migrations.ts",
+    "migrations": "ts-node ./src/data/migrations/migrations.ts",
     "test": "cls && echo \"Running tests...\" && node ./node_modules/jest/bin/jest.js",
     "index": "cls && node ./index.ts"
   },
