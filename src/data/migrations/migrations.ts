@@ -17,7 +17,7 @@ const connection = knex({
 
 const createTables = async (): Promise<boolean> => {
     try {
-        await connection
+        await connection                // tamplate String
             .raw(`
                 CREATE TABLE IF NOT EXISTS shopper_Products (
                     id VARCHAR(64) PRIMARY KEY,

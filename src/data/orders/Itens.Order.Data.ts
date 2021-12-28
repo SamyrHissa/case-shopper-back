@@ -8,7 +8,7 @@ export class ItensOrderData extends BaseDatabase implements ItensOrderRepository
     }
     async create(input: ItensOrderModel): Promise<boolean>{
         try {
-            try {
+            try {                                       // atualiza o estoque do produto
                 await this.getConnection().raw(`
                     UPDATE shopper_Products
                     SET qty_stock = qty_stock - ${input.getQty_requested()}
@@ -29,7 +29,7 @@ export class ItensOrderData extends BaseDatabase implements ItensOrderRepository
                     .into(this.tableName)
                     
             return true
-        } catch (error) {
+        } catch (error) {                                       // atualiza o estoque do produto
             await this.getConnection().raw(`
                     UPDATE shopper_Products
                     SET qty_stock = qty_stock + ${input.getQty_requested()}
@@ -60,7 +60,7 @@ export class ItensOrderData extends BaseDatabase implements ItensOrderRepository
                             .where({
                                 "id": itemId
                             })
-        try {
+        try {                                       // atualiza o estoque do produto
             await this.getConnection().raw(`
                 UPDATE shopper_Products
                 SET qty_stock = qty_stock - ${qty_alter - itemOrder[0].qty_requested}
@@ -78,7 +78,7 @@ export class ItensOrderData extends BaseDatabase implements ItensOrderRepository
                 WHERE id = "${itemId}"
             `)
             return true
-        } catch (error) {
+        } catch (error) {                                       // atualiza o estoque do produto
             await this.getConnection().raw(`
                     UPDATE shopper_Products
                     SET qty_stock = qty_stock + ${qty_alter - itemOrder[0].qty_requested}
@@ -96,7 +96,7 @@ export class ItensOrderData extends BaseDatabase implements ItensOrderRepository
                             .where({
                                 "id": itemId
                             })
-        try {
+        try {                                       // atualiza o estoque do produto
             await this.getConnection().raw(`
                     UPDATE shopper_Products
                     SET qty_stock = qty_stock + ${itemOrder[0].qty_requested}
@@ -115,7 +115,7 @@ export class ItensOrderData extends BaseDatabase implements ItensOrderRepository
                         "id": itemId
                     })
             return true
-        } catch (error) {
+        } catch (error) {                                       // atualiza o estoque do produto
             await this.getConnection().raw(`
                     UPDATE shopper_Products
                     SET qty_stock = qty_stock - ${itemOrder[0].qty_requested}

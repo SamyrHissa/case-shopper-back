@@ -13,14 +13,6 @@ const ReadCsvFileToArray = (csvFile: string) => {
                 result.push(parts[0])
                 i++
             }
-            if(i === (parts.length - 2)){   // penultima parte (price)
-                result.push(parts[i])
-                i++
-            }
-            if(i === (parts.length - 1)){    // ultima parte (qty_stock)
-                result.push(parts[i])
-                i++
-            }
             if((0 < i) && ( i <= (parts.length - 3))){   // a parte que ficou entre a primeira
                 let textAux = ""                         // e a penultima parte
                 let x = i
@@ -32,6 +24,15 @@ const ReadCsvFileToArray = (csvFile: string) => {
                 i = x;
                 result.push(textAux)
             }
+            if(i === (parts.length - 2)){   // penultima parte (price)
+                result.push(parts[i])
+                i++
+            }
+            if(i === (parts.length - 1)){    // ultima parte (qty_stock)
+                result.push(parts[i])
+                i++
+            }
+            
         }
 
         return result;
