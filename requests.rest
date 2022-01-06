@@ -19,12 +19,12 @@ content-type: application/json
 
 ###
 
-GET http://localhost:3003/orders/f13d62ef-240d-48 00-a595-89583502d498
+GET http://localhost:3003/orders/58a8bd3c-a236-4de4-a49a-b58cbfc30892
 content-type: application/json
 
 
 ###
-GET http://localhost:3003/orders/itens/b3b4a44b-e34c-41fc-a99a-4a7d977b 99d3
+GET http://localhost:3003/orders/itens/58a8bd3c-a236-4de4-a49a-b58cbfc30892
 content-type: application/json
 
 
@@ -34,9 +34,9 @@ POST http://localhost:3003/orders/itens
 content-type: application/json
 
 {
-    "order_id": "f13d62ef-240d-4800-a595-895835 02d498",
-    "product_id": "23",
-    "qty_requested": 25
+    "order_id": "58a8bd3c-a236-4de4-a49a-b58cbfc30892",
+    "product_id": "25",
+    "qty_requested": 15
 }
 
 ###
@@ -44,12 +44,12 @@ PUT http://localhost:3003/orders/itens
 content-type: application/json
 
 {
-    "item_id": "f13d62ef-240d-4800-a595-895502d498",
+    "item_id": "031eb064-a284-43e6-a49e-ae317fe743d9",
     "qty_alter": 5
 }
 
 ###
-DELETE http://localhost:3003/orders/itens/694a6370-3b5b-4c96-a7a3-5fa83f3d8668
+DELETE http://localhost:3003/orders/itens/34cd210b-5d57-41b9-94e3-4dfaaee64c22
 content-type: application/json
 
 

@@ -37,6 +37,7 @@ const createTables = async (): Promise<boolean> => {
                     order_id VARCHAR(64) NOT NULL,
                     product_id VARCHAR(64) NOT NULL,
                     qty_requested INTEGER NOT NULL,
+                    price DECIMAL(15,4),
                     FOREIGN KEY(order_id) REFERENCES shopper_Orders(id),
                     FOREIGN KEY(product_id) REFERENCES shopper_Products(id)
                 );

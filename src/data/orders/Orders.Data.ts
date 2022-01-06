@@ -29,7 +29,7 @@ export class OrdersData extends BaseDatabase implements OrdersRepository {
             const result = await this.getConnection().raw(`
                 SELECT OD.id Order_id, OD.name_client Cliente, 
                        OD.delivery_date Data_Entrega, 
-                       IFNULL(SUM(IOD.qty_requested * PD.price), 0) Valor
+                       IFNULL(SUM(IOD.qty_requested * IOD.price), 0) Valor
                 FROM shopper_Orders OD
                 LEFT JOIN shopper_Order_Itens IOD ON IOD.order_id = OD.id
                 LEFT JOIN shopper_Products PD ON PD.id = IOD.product_id
@@ -47,7 +47,7 @@ export class OrdersData extends BaseDatabase implements OrdersRepository {
             const result = await this.getConnection().raw(`
             SELECT OD.id Order_id, OD.name_client Cliente, 
                     OD.delivery_date Data_Entrega, 
-                    IFNULL(SUM(IOD.qty_requested * PD.price), 0) Valor
+                    IFNULL(SUM(IOD.qty_requested * IOD.price), 0) Valor
             FROM shopper_Orders OD
             LEFT JOIN shopper_Order_Itens IOD ON IOD.order_id = OD.id
             LEFT JOIN shopper_Products PD ON PD.id = IOD.product_id
