@@ -24,7 +24,8 @@ export class ItensOrderData extends BaseDatabase implements ItensOrderRepository
                         "id": input.getId(),
                         "order_id": input.getOrderId(),
                         "product_id": input.getProductId(),
-                        "qty_requested": input.getQty_requested()
+                        "qty_requested": input.getQty_requested(),
+                        "price": input.getPrice()
                     })
                     .into(this.tableName)
                     
@@ -47,7 +48,14 @@ export class ItensOrderData extends BaseDatabase implements ItensOrderRepository
                                     .where({
                                         "id": itemId
                                     })
-            return result[0]
+            return new ItensOrderModel(
+                result[0].id,
+                result[0].order_id,
+                result[0].product_id,
+                result[0].qty_requested,
+                result[0].price
+            )
+            
         } catch (error) {
             console.log(error)
             return undefined

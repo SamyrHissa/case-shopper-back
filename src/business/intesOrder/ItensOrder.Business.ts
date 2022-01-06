@@ -3,6 +3,7 @@ import { OrdersData } from "../../data/orders/Orders.Data";
 import { ProductsData } from "../../data/products/Products.Data";
 import BaseError from "../../error/BaseError";
 import { ItensOrderModel } from "../../model/orders/ItensOrder.Model";
+import { ProductsModel } from "../../model/products/Products.Model";
 import { IdGenerator } from "../../services/IdGenerator";
 
 export class ItensOrderBusiness {
@@ -19,16 +20,17 @@ export class ItensOrderBusiness {
         if(!await this.ordersData.getOrderById(orderId)){
             throw new BaseError ("order_id não encontrado!", 404);
         }
-        if(!await this.productsData.getProductById(productId)){
+        const product: ProductsModel | undefined = await this.productsData.getProductById(productId);
+        if(!product){
             throw new BaseError ("product_id não encontrado!", 404);
         }
-
         const id = this.idGenerator.generate();
         const newItemOrder = new ItensOrderModel(
             id,
             orderId,
             productId,
-            qty_requested
+            qty_requested,
+            product.getPrice()
         )
         const result = await this.data.create(newItemOrder)
         if(result){

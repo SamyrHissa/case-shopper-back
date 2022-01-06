@@ -18,7 +18,7 @@ export class ProductsData extends BaseDatabase implements ProductsRepository{
             return []
         }
     }
-    async getProductById(product_id: string): Promise<ProductsModel | boolean>{
+    async getProductById(product_id: string): Promise<ProductsModel | undefined>{
         try {
             const result = await this.getConnection()
                             .select("*")
@@ -26,11 +26,14 @@ export class ProductsData extends BaseDatabase implements ProductsRepository{
                             .where({
                                 "id": product_id
                             })
-            
-            return result[0]
+            return new ProductsModel(
+                result[0].id,
+                result[0].name,
+                result[0].price,
+                result[0].qty_stock
+            )
         } catch (error: any) {
             console.log(error);
-            return false
         }
     }
 }
